@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 
 public class AddressBookSystemDetails {
-
     public static ArrayList<Contacts> contactList = new ArrayList<>();
     public static Map<String, Contacts> nameHashMap = new HashMap<String, Contacts>();
     public static Map<String, Contacts> cityHashMap = new HashMap<String, Contacts>();
