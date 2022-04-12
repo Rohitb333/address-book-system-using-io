@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookSystemDetails {
-
     ArrayList<Contacts> personDetails = new ArrayList<Contacts>();
     Contacts contacts = new Contacts(null, null, null, null, null, null, 0, 0);
     Scanner sc = new Scanner(System.in);

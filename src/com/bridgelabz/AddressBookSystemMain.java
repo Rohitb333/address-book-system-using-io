@@ -28,8 +28,10 @@ public class AddressBookSystemMain {
                     details.display();
                     break;
                 default:
-                    choice = 0;
+                    System.out.println("Invalid choice");
             }
+            System.out.println("Do you want to continue?(0/1)");
+            sc.nextInt();
         }
     }
 }
