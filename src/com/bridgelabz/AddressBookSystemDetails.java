@@ -1,10 +1,8 @@
 package com.bridgelabz;
 
-
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
 
 public class AddressBookSystemDetails {
     public static ArrayList<Contacts> contactList = new ArrayList<>();
@@ -33,32 +31,32 @@ public class AddressBookSystemDetails {
 
     // method for adding details
     public static Contacts readContact() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter First Name: ");
-        String firstName = sc.nextLine();
+        String firstName = scanner.nextLine();
         System.out.print("Enter Last Name: ");
-        String lastName = sc.nextLine();
+        String lastName = scanner.nextLine();
         System.out.print("Enter Address: ");
-        String address = sc.nextLine();
+        String address = scanner.nextLine();
         System.out.print("Enter City: ");
-        String city = sc.nextLine();
+        String city = scanner.nextLine();
         System.out.print("Enter State: ");
-        String state = sc.nextLine();
+        String state = scanner.nextLine();
         System.out.print("Enter Email ID: ");
-        String email = sc.nextLine();
+        String email = scanner.nextLine();
         System.out.print("Enter Zip Code: ");
-        int zip = sc.nextInt();
-        sc.nextLine();
+        int zip = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Enter Phone Number: ");
-        Long phoneNumber = sc.nextLong();
-        sc.nextLine();
+        Long phoneNumber = scanner.nextLong();
+        scanner.nextLine();
 
         return new Contacts(firstName, lastName, address, city, state, email, zip, phoneNumber);
     }
 
     // method for show option for contacts
     public static void addressBookOptions(AddressBookSystemDetails addressBook) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("1. Add contact details");
             System.out.println("2. Edit contact details");
@@ -66,8 +64,8 @@ public class AddressBookSystemDetails {
             System.out.println("4. Show contacts details");
             System.out.println("5. Back to main menu");
             System.out.print("Enter Your choice: ");
-            int choice = sc.nextInt();
-            sc.nextLine();
+            int choice = scanner.nextInt();
+            scanner.nextLine();
             switch (choice) {
                 case 1:
                     if (addressBook.addContact(readContact())) // call addcontact with passing method readcontact
@@ -77,7 +75,7 @@ public class AddressBookSystemDetails {
                     break;
                 case 2:
                     System.out.println("Enter First name to edit contact: ");
-                    String name = sc.nextLine();
+                    String name = scanner.nextLine();
                     List<Contacts> equalName = addressBook.searchByName(name);// list of equal first name
                     if (equalName.isEmpty())// if not match found
                         System.out.println("Data Not Found....!");
@@ -88,15 +86,15 @@ public class AddressBookSystemDetails {
                     } else {// if more than one firstname match found in equal name list
                         equalName.forEach(x -> System.out.println(equalName.indexOf(x) + "  " + x.toString()));
                         System.out.println("Enter index to edit : ");
-                        int i = sc.nextInt();
-                        sc.nextLine();
+                        int i = scanner.nextInt();
+                        scanner.nextLine();
                         addressBook.editContact(equalName.get(i), readContact());
                         System.out.println("Contact Modified....!");
                     }
                     break;
                 case 3:
                     System.out.println("Enter First name to delete contact: ");
-                    name = sc.nextLine();
+                    name = scanner.nextLine();
                     equalName = addressBook.searchByName(name);
                     if (equalName.isEmpty())
                         System.out.println("Data Not Found.....!");
@@ -106,8 +104,8 @@ public class AddressBookSystemDetails {
                     } else {
                         equalName.forEach(x -> System.out.println(equalName.indexOf(x) + "  " + x.toString()));
                         System.out.println("Enter an index to delete");
-                        int index = sc.nextInt();
-                        sc.nextLine();
+                        int index = scanner.nextInt();
+                        scanner.nextLine();
                         addressBook.deleteContact(equalName.get(index));
                         System.out.println("Contact data deleted....!");
                     }
@@ -126,14 +124,14 @@ public class AddressBookSystemDetails {
 
     // method for view element by option
     public static void viewByOption(Map<String, AddressBookSystemDetails> addressBookMap) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("1. View By name");
         System.out.println("2. View By city");
         System.out.println("3. View By state");
         System.out.println("4. Back");
         System.out.print("Enter Your choice: ");
-        int choice = sc.nextInt();
-        sc.nextLine();
+        int choice = scanner.nextInt();
+        scanner.nextLine();
         switch (choice) {
             case 1:
                 viewByName(nameHashMap);
@@ -241,28 +239,28 @@ public class AddressBookSystemDetails {
 
     public void searchByOptions() {
         AddressBookSystemDetails addressBook = new AddressBookSystemDetails();
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("1. By name");
         System.out.println("2. By city");
         System.out.println("3. By state");
         System.out.println("4. Back");
         System.out.println("Your choice: ");
-        int choice = sc.nextInt();
-        sc.nextLine();
+        int choice = scanner.nextInt();
+        scanner.nextLine();
         switch (choice) {
             case 1:
                 System.out.println("Enter name: ");
-                String name = sc.nextLine();
+                String name = scanner.nextLine();
                 contactList.forEach(book -> searchByName(name).forEach(System.out::println));
                 break;
             case 2:
                 System.out.println("Enter city: ");
-                String city = sc.nextLine();
+                String city = scanner.nextLine();
                 contactList.forEach(book -> searchByCity(city).forEach(System.out::println));
                 break;
             case 3:
                 System.out.println("Enter state: ");
-                String state = sc.nextLine();
+                String state = scanner.nextLine();
                 contactList.forEach(book -> searchByState(state).forEach(System.out::println));
                 break;
             case 4:
@@ -274,13 +272,13 @@ public class AddressBookSystemDetails {
 
     //method to count element by option
     public void countByOption() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("1. Count City ");
         System.out.println("2. Count State");
         System.out.println("3. Back ");
         System.out.println("Enter Your Choice : ");
-        int choice = sc.nextInt();
-        sc.nextLine();
+        int choice = scanner.nextInt();
+        scanner.nextLine();
         switch (choice) {
             case 1:
                 Map<String, Long> countCity = contactList.stream()
