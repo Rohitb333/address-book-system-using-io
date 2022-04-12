@@ -41,7 +41,7 @@ public class AddressBookSystemDetails {
         for (int i = 0; i < personDetails.size(); i++) {
             if (personDetails.get(i).getFirstName().equals(confirmName)) {
                 System.out.println("Select mentioned detail to edit: ");
-                System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.city\n5.State\n6.Zip\n7.Mobile number\n8.Email");
+                System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.city\n5.State\n6.Email\n7.Zip\n8.Mobile number");
                 int edit = sc.nextInt();
 
                 switch (edit) {
@@ -85,6 +85,19 @@ public class AddressBookSystemDetails {
         }
     }
 
+    // This method is used to delete the contact details
+    public void deleteDetails() {
+        System.out.println("Confirm first name to delete contact details");
+        String confirmName = sc.next();
+        for (int i = 0; i < personDetails.size(); i++) {
+
+            if (personDetails.get(i).getFirstName().equals(confirmName)) {
+                personDetails.remove(i);
+            } else {
+                System.out.println("Enter valid first name");
+            }
+        }
+    }
 
     // This method is used to display the added information
     public void display() {
