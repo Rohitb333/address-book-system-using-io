@@ -107,7 +107,22 @@ public class AddressBookSystemDetails {
         System.out.println(personDetails);
     }
 
+    //Method to check for duplicate entry before adding the person.
 
+    public void duplicateCheck(String firstName) {
+        for (int j = 0; j < personDetails.size(); j++) {
+            String contactName = personDetails.get(j).getFirstName();
+
+            if (firstName.equals(contactName)) {
+                System.out.println("This Person is Already Present");
+            } else {
+                System.out.println("You can Add this Person");
+                break;
+            }
+        }
+    }
+
+    //This Method is used to create, edit And Manage Multiple AddressBook
     public void createAddressBook() {
         int option = 1;
         while (option == 1) {
@@ -131,7 +146,7 @@ public class AddressBookSystemDetails {
                     int choice = 1;
                     while (choice == 1) {
                         System.out.println("Choose an Option According To Your Preference: ");
-                        System.out.println("1.Add details.\n2.Edit details.\n3.Delete contact. \n4.Display Contact\n5.Exit");
+                        System.out.println("1.Add details.\n2.Edit details.\n3.Delete contact.\nDuplicate Check \n5.Display Contact\n5.Exit");
 
                         switch (sc.nextInt()) {
                             case 1:
@@ -144,6 +159,11 @@ public class AddressBookSystemDetails {
                                 details.deleteDetails();
                                 break;
                             case 4:
+                                System.out.println("Enter first name to check for duplicate verification");
+                                String enterName = sc.next();
+                                details.duplicateCheck(enterName);
+                                break;
+                            case 5:
                                 details.displayDetails();
                                 break;
                             default:
@@ -182,6 +202,11 @@ public class AddressBookSystemDetails {
                                     details.deleteDetails();
                                     break;
                                 case 4:
+                                    System.out.println("Enter first name to check for duplicate verification");
+                                    String enterName = sc.next();
+                                    details.duplicateCheck(enterName);
+                                    break;
+                                case 5:
                                     details.displayDetails();
                                     break;
                                 default:
